@@ -1,0 +1,27 @@
+type Address {
+	id: ID
+	addressLine1: String!
+	addressLine2: String!
+	city: String!
+	state: String!
+	country: String!
+	pinCode: String!
+}
+
+extend type Query {
+	getAllAddress : [Address]
+	findByState(state: String!) : [Address]
+}
+
+extend type Mutation {
+    createAddress(input: AddressInput): Address
+}
+
+input AddressInput {
+	addressLine1: String!
+	addressLine2: String!
+	city: String!
+	state: String!
+	country: String!
+	pinCode: String!
+}

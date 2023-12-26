@@ -1,0 +1,32 @@
+type Query {
+   getAllTeacher : [Teacher]
+}
+
+interface Person {
+ id : ID!
+ firstName: String!
+ lastName: String!
+}
+
+type Teacher implements Person {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    subject : String!
+}
+
+type Mutation {
+  createTeacher(input:TeacherInput): Teacher
+}
+
+input TeacherInput {
+	firstName: String!
+    lastName: String!
+    subject:String!
+}
+
+schema {
+  query: Query,
+  mutation: Mutation
+}
+

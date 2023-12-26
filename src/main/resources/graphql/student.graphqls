@@ -1,0 +1,38 @@
+extend type Query {
+    getStudent(id:ID!): Student
+    findAllStudent : [Student]
+}
+type Student {
+    id: ID
+    firstName: String!
+    lastName: String!
+    emailId: String!
+    phone: String
+    grade: String
+    address : Address
+}
+
+interface Person {
+ id : ID!
+ firstName: String!
+ lastName: String!
+}
+
+
+extend type Mutation {
+  createStudent(input: StudentInput): Student
+}
+
+input StudentInput {
+	firstName: String!
+    lastName: String!
+    emailId: String!
+    phone: String!
+    address: AddressInput
+}
+
+schema {
+  query: Query,
+  mutation: Mutation
+}
+
