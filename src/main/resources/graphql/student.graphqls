@@ -12,13 +12,6 @@ type Student {
     address : Address
 }
 
-interface Person {
- id : ID!
- firstName: String!
- lastName: String!
-}
-
-
 extend type Mutation {
   createStudent(input: StudentInput): Student
 }
@@ -29,10 +22,5 @@ input StudentInput {
     emailId: String!
     phone: String!
     address: AddressInput
-}
-
-schema {
-  query: Query,
-  mutation: Mutation
 }
 
