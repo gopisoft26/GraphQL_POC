@@ -17,16 +17,14 @@ public class GraphQLController {
 
 	private final GraphQL graphQL;
 
-    @Autowired
-    public GraphQLController(GraphQLSchema graphQLSchema) {
-        this.graphQL = GraphQL.newGraphQL(graphQLSchema)
-                .queryExecutionStrategy(new AsyncExecutionStrategy())
-                .build();
-    }
+	@Autowired
+	public GraphQLController(GraphQLSchema graphQLSchema) {
+		this.graphQL = GraphQL.newGraphQL(graphQLSchema).queryExecutionStrategy(new AsyncExecutionStrategy()).build();
+	}
 
-    @PostMapping("/graphql")
-    public Map<String, Object> executeQuery(@RequestBody String query) {
-        ExecutionResult executionResult = graphQL.execute(query);
-        return executionResult.toSpecification();
-    }
+	@PostMapping("/graphql")
+	public Map<String, Object> executeQuery(@RequestBody String query) {
+		ExecutionResult executionResult = graphQL.execute(query);
+		return executionResult.toSpecification();
+	}
 }

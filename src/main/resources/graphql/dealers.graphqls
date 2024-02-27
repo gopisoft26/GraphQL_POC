@@ -1,0 +1,308 @@
+type Dealer {
+    id: String
+    dealerId: String 
+    siteId: String 
+    owner: String 
+    brands: [String] 
+    country: String 
+    language: String 
+    openingHoursUrl: String
+    name: String 
+    address: Address 
+    geolocation: Coordinates 
+    openingHours: OpeningHours
+    contact: Contact 
+    mailtoEmails:  [String] 
+    manager: Manager 
+    services:  [Services] 
+    averageStarRating: StarRating 
+    canAcceptLeads: Boolean 
+    canAcceptGeneralDemand: Boolean 
+    hasDealerWebsite: Boolean 
+    type: String 
+    affiliates:  [String] 
+    group: Group 
+    shortName: String 
+    marketingGroupId: String 
+    #feedContracts: Contract 
+    updateCode: String 
+    flowDealerType: String 
+    invalidDealerType: Boolean 
+    active: Boolean 
+    blacklisted: Boolean 
+    urlId: String 
+    logo: Image 
+    backgroundPicture: Image 
+    spokenLanguages:  [String]
+    description: String 
+    socialNetworks: [SocialNetwork] 
+    awards: [Award] 
+    certifications: [Certification] 
+    news: [News] 
+    modules: [Module]
+    #commitments: [Commitment] 
+    lowestSite: String 
+    linkToRentVehicle: Image 
+    testDrive: TestDrive 
+    departments: [DealerDepartment]
+ }
+ 
+ type Address {
+ 	addressLine1: String
+    addressLine2: String
+    addressLine3: String
+    postalCode: String
+    city: String
+    state: String
+    stateCode: String
+    regionExternalCode: String
+    districtExternStringode: String
+    area : String
+    zipCode3Digits: String
+    zipCode4Digits: String
+ }
+ 
+type Coordinates {
+ 	longitude: Float
+    latitude: Float
+ }
+ 
+ type OpeningHours {
+	regularOpeningHours: [OpeningHoursStructure]
+    specialOpeningHours: [OpeningHoursStructure]
+    openingHoursText: String
+    regularOpeningHoursText: String
+    openingHoursText1: String
+    openingHoursText2: String
+ }
+ 
+ type Contact {
+ 	phone: String
+    fax: String
+    email: String
+    website: String
+    phones: [Phone]
+    websites: [WebSite]
+    
+ }
+ 
+ type WebSite {
+ 	identifier : String
+	url : String
+	language : String
+ }
+ 
+ type Manager{
+    lastName: String
+    firstName: String
+    role: String
+    picture: Image
+    message: String
+ }
+ 
+ type TestDrive {
+ 	lateRequests: LateRequest
+ }
+ 
+ type DealerDepartment {    
+    dealerId: String
+    language: String
+    id: String
+    name: String
+    defaultDepartment: String
+    geolocation: Coordinates
+    address: Address
+    contact: Contact
+    openingHours: OpeningHours
+    
+ }
+ 
+ type LateRequest {
+ 	available: Boolean
+    cutOffTime: String
+    cutOffDaysInAdvance: Int
+ }
+ type Group {
+ 	_id: String
+    groupId: String
+    language: String
+    country: String
+    owner: String
+    shortName: String
+    brands: [String]
+    urlId: String
+    name: String
+    address: Address
+    contact: Contact
+    logo: Image
+    picture: Image
+    description: String
+    #dealers: None
+    news: [News]
+    title: String
+    commitments: [Commitment]
+    dealerId: String
+    websites: [WebSite]
+    
+ }
+ 
+type Image {
+ 	url: String
+    desktopStandard: String
+    desktopRetina: String
+    mobileStandard: String
+    mobileRetina: String
+    tabletStandard: String
+    tabletRetina: String
+ }
+ 
+type News {
+	dealerId: String
+	groupId: String
+	language: String
+	newsType: String
+	#updateDate: date
+	updateDateString: String
+	onTitle: String
+	title: String
+	body: String
+	#picture: [Image]
+ }
+ 
+type Module {
+ 	dealerId: String
+    name: String
+    moduleId: String
+ }
+ 
+ type Commitment {
+ 	picture: [Image]
+    title: String
+    body: String
+ }
+ 
+ type Services {
+    id: String
+    serviceId: String
+    name: String
+    owner: String
+    brands: [String]
+    country: String
+    language: String
+    url: String
+    openingHours: OpeningHours
+    webCallbackOpeningHours: OpeningHours
+    members: [Member]
+    phones: [Phone]
+    webCallBackPhoneNumbers: [String]
+    type: String
+    dataClassification: String
+    dealerId: String
+    groupId: String
+    associatedBrand: String
+ }
+ 
+ type Member {
+ 	dealerId: String
+    language: String
+    message: String
+    firstName: String
+    lastName: String
+    mail: String
+    phone: String
+    role: String
+    contactDetails: String
+    serviceId: String
+    picture: Image
+ }
+ 
+ type StarRating {
+   sales: AverageStarRating
+   afterSales: AverageStarRating
+ 
+ }
+ 
+ type Contract {
+ 	_id: String
+ 	affiliates: [String]
+    contractId: String
+    dealerId: String
+    startDate: String
+    endDate: String
+    status: String
+    contractor: String
+ }
+ 
+ type SocialNetwork {
+ 	dealerId: String
+    accountId: String
+    network: String
+    networkId: String
+ }
+ 
+ type Award {
+  	id: String
+    strid: String
+    picture: Image
+    title: String
+    description: String
+ }
+ 
+ type Certification {
+ 	picture: Image
+    id: String
+    title: String
+    description: String
+ }
+ 
+ type AverageStarRating {
+ 	displayStars: Float
+    displayScore: Float
+    numberOfReviews: Int
+ }
+ 
+ type Phone {
+    identifier: String
+    number: String
+ }
+ 
+ type WebSite {
+  identifier: String
+    url: String
+    language: String
+ }
+ 
+ 
+ type OpeningHoursStructure{
+	dealerId: String
+    siteId: String
+    serviceId: String
+    activityId: String
+    openingHourId: String
+    closed: Boolean
+    weekDay: Int
+    #startDate: date
+    #endDate: date
+    openIntervals: [OpenInterval]
+    departmentId: String
+ }
+ 
+ type OpenInterval {
+    openFrom: String
+    openUntil: String  
+ }
+ 
+ 
+type Query {
+	findAllDealers : [Dealer]
+    findbyBrandsLanCountry(owner:String!,lang:String!,country:String!):[Dealer]
+    findbyDealerId(dealerId:String!): Dealer
+    findbyBrandsCountry(owner:String!,country:String!):[Dealer]
+    findbyBrandsLanCountryDealerId(owner:String!,lang:String!,country:String!,dealerId:String!):[Dealer]
+}
+
+type Mutation {
+ 	save(owner:String!): Dealer
+}
+
+

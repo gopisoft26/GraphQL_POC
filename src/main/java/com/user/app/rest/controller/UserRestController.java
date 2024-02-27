@@ -12,7 +12,7 @@ public class UserRestController {
 	public String welcome() {
 		return "Welcome Hello !.";
 	}
-	
+
 	@GetMapping("/hello")
 	public String hello() {
 		return "Hello ! india";
